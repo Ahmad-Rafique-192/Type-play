@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypePlay - Typing Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h2>TypePlay</h2>
+  <span>Typing Challenge Game</span>
+</header>
+
+<main>
+
+  <section id="homeScreen">
+    <div class="hero">
+      <h1>Improve Your Typing Skills</h1>
+      <p>Choose a game and test your speed and accuracy.</p>
+    </div>
+
+    <h2>Difficulty</h2>
+    <div class="difficulty">
+      <button class="selected" data-difficulty="easy">Easy</button>
+      <button data-difficulty="medium">Medium</button>
+      <button data-difficulty="hard">Hard</button>
+    </div>
+
+    <h2>Choose Your Game</h2>
+    <div class="games">
+
+      <article class="card" data-card-mode="bubbles">
+        <div class="preview bubbles-preview">
+          <span>A</span><span>S</span><span>D</span>
+          <span>F</span><span>J</span>
+        </div>
+        <h2>Bubbles</h2>
+        <p>Pop moving bubbles by pressing matching letters.</p>
+        <button data-start-mode="bubbles">Start Bubbles</button>
+      </article>
+
+      <article class="card" data-card-mode="keymagnet">
+        <div class="preview keyboard-preview">
+          <p>Q W E R T Y U I O P</p>
+          <p>A S D F G H J K L</p>
+          <p>Z X C V B N M</p>
+        </div>
+        <h2>KeyMagnet</h2>
+        <p>Type target letters quickly and accurately.</p>
+        <select id="keySetSelectHome">
+          <option value="home">Home Row</option>
+          <option value="top">Top Row</option>
+          <option value="all">All Letters</option>
+        </select>
+        <button data-start-mode="keymagnet">Start KeyMagnet</button>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="gameScreen" hidden>
+
+    <div class="game-header">
+      <button id="backToMenuButton" class="secondary">Back to Menu</button>
+      <span id="gameModeLabel"></span>
+    </div>
+
+    <div class="game-heading">
+      <div>
+        <p id="gameDifficultyLabel"></p>
+        <h1 id="gameTitle"></h1>
+        <p id="gameSubtitle"></p>
+      </div>
+      <div>
+        <button id="restartButton" class="secondary">Restart</button>
+        <button id="resetButton" class="secondary">Reset</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div>Score<strong id="scoreValue">0</strong></div>
+      <div><span id="statTwoLabel">Misses</span><strong id="statTwoValue">0</strong></div>
+      <div><span id="statThreeLabel">Active</span><strong id="statThreeValue">0</strong></div>
+      <div><span id="statFourLabel">Time</span><strong id="statFourValue">00:00</strong></div>
+    </div>
+
+    <section id="bubblesPanel" class="panel" hidden>
+      <h2>Bubble Arena</h2>
+      <div id="bubbleField"></div>
+      <p id="bubbleFeedback" class="feedback">Press a matching letter.</p>
+      <p>Correct: +10 | Incorrect: -2 | Six misses: Game Over</p>
+    </section>
+
+    <section id="keyMagnetPanel" class="panel" hidden>
+      <h2>KeyMagnet Practice</h2>
+
+      <label>Key Set:
+        <select id="keySetSelectGame">
+          <option value="home">Home Row</option>
+          <option value="top">Top Row</option>
+          <option value="all">All Letters</option>
+        </select>
+      </label>
+
+      <div class="target">
+        <p>TYPE THIS LETTER</p>
+        <strong id="targetLetter">A</strong>
+        <p id="targetPrompt">Press A</p>
+      </div>
+
+      <div id="keyboardLayout"></div>
+
+      <p id="keyFeedback" class="feedback">Get ready!</p>
+      <p>Average response: <strong id="averageResponseValue">0 ms</strong></p>
+    </section>
+
+  </section>
+
+  <section id="resultsScreen" hidden>
+    <div class="results">
+      <h1 id="resultsTitle">Game Over!</h1>
+      <p id="resultsMessage">Your results</p>
+
+      <h2>Final Score: <strong id="finalScoreValue">0</strong></h2>
+
+      <div id="resultsStats"></div>
+
+      <button id="playAgainButton">Play Again</button>
+      <button id="resultsMenuButton" class="secondary">Main Menu</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>TypePlay | HTML · CSS · JavaScript</footer>
+
+</body>
+</html>

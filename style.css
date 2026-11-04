@@ -1,0 +1,389 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #367a59;
+  --light: #eaf3eb;
+  --text: #26372e;
+  --muted: #728078;
+  --border: #dce5dd;
+  --white: #fff;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7f4;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+header h2 {
+  color: var(--green);
+}
+
+header span, p {
+  color: var(--muted);
+}
+
+main {
+  width: 90%;
+  max-width: 1050px;
+  margin: 40px auto;
+}
+
+.hero {
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+.difficulty {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+button, select {
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: white;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+button:hover {
+  border-color: var(--green);
+}
+
+.difficulty button.selected {
+  background: var(--light);
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: bold;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+}
+
+.card h2 {
+  margin: 15px 0 5px;
+}
+
+.card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.preview {
+  height: 150px;
+  border-radius: 9px;
+  background: var(--light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.bubbles-preview span {
+  background: #b8dbc4;
+  color: #285b40;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  animation: float 2s infinite alternate;
+}
+
+.bubbles-preview span:nth-child(even) {
+  background: #f0d3bd;
+  animation-delay: .5s;
+}
+
+@keyframes float {
+  to { transform: translateY(-12px); }
+}
+
+.keyboard-preview {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keyboard-preview p {
+  color: var(--green);
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.card select, .card button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card button, #playAgainButton {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+}
+
+.game-header, .game-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.game-heading h1 {
+  font-size: 32px;
+}
+
+.game-heading p {
+  margin-top: 5px;
+}
+
+.secondary {
+  background: white;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stats div {
+  background: white;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stats strong {
+  display: block;
+  color: var(--text);
+  font-size: 24px;
+}
+
+.panel, .results {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.panel h2 {
+  margin-bottom: 15px;
+}
+
+#bubbleField {
+  height: 380px;
+  background: var(--light);
+  border-radius: 9px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #a9d7bc;
+  color: #244e37;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+.bubble:nth-child(even) {
+  background: #efd0b6;
+}
+
+.feedback {
+  background: var(--light);
+  color: var(--green);
+  text-align: center;
+  padding: 10px;
+  margin: 14px 0;
+  border-radius: 7px;
+}
+
+.feedback.wrong {
+  background: #fae9e9;
+  color: #c34848;
+}
+
+.target {
+  text-align: center;
+  padding: 25px;
+  margin: 20px 0;
+  background: var(--light);
+  border-radius: 9px;
+}
+
+.target strong {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  margin: 15px auto;
+  background: var(--green);
+  color: white;
+  border-radius: 12px;
+  font-size: 50px;
+}
+
+#keyboardLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 5px;
+}
+
+.keyboard-key {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: #f2f5f1;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.keyboard-key.available {
+  background: var(--light);
+  color: var(--green);
+}
+
+.keyboard-key.target {
+  background: var(--green);
+  color: white;
+}
+
+#keyMagnetPanel label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.results {
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.results h2 {
+  margin: 25px 0;
+}
+
+#resultsStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  padding: 12px;
+  background: var(--light);
+  border-radius: 7px;
+}
+
+.result-item strong {
+  display: block;
+}
+
+#resultsStats span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+
+@media (max-width: 650px) {
+  .games {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .game-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .preview {
+    height: 120px;
+  }
+
+  .keyboard-key {
+    width: 28px;
+    height: 32px;
+    font-size: 11px;
+  }
+}
